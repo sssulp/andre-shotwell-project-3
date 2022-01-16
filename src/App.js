@@ -51,10 +51,10 @@ function App() {
         {anime.map((anime) => {
           return (
             <div className='main-display' key={anime.mal_id}>
-              <h2>title: {anime.title}</h2>
               <img src={anime.image_url}/>
-              <p>type: {anime.type}</p>
-              <p>about: {anime.synopsis}</p>
+              <h2>Title: {anime.title}</h2>
+              <p className="">Type: {anime.type}</p>
+              <p className="anime-synopsis">About: {anime.synopsis}</p>
             </div>
           )
         })}

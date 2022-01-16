@@ -10,9 +10,12 @@ const Header = () => {
                     <p className="title-slogan">seek your next binge</p>
                 </div>
             </div>
+
             <video autoPlay loop muted id='video'>
                 <source src={ backgroundVideo } type='video/mp4' />
             </video>
+            <div className="gradient-overlay"></div>
+
         </header>
     );
 };
