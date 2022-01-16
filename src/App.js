@@ -6,6 +6,7 @@ import './App.css';
 
 function App() {
 
+  // de-structure what useState function will return
   const [ anime, setAnime ] = useState([]);
   const [ userInput, setUserInput ] = useState("");
   const [ searchTerm, setSearchTerm ] = useState("");
@@ -23,13 +24,12 @@ function App() {
         format: 'json',
       },
     }).then( (res) => {
-      setAnime(res.data.top);
+      setAnime(res.data.results);
     });
   }, [searchTerm]);
 
   // create function that tracks the user's input on the searchbar
   const handleInput = (event) => {
-    console.log('is this working?', event.target.value);
     setUserInput(event.target.value);
   }
 
@@ -44,9 +44,20 @@ function App() {
       <Header />
       <main>
         <form onSubmit={ handleSubmit }>
-          <input type="text" id="search" placeholder="Naruto" onChange={ handleInput } value={ userInput }/>
+          <input type="text" id="search" placeholder="Violet Evergarden" onChange={ handleInput } value={ userInput }/>
           <button>Search</button>
         </form>
+
+        {anime.map((anime) => {
+          return (
+            <div className='main-display' key={anime.mal_id}>
+              <h2>title: {anime.title}</h2>
+              <img src={anime.image_url}/>
+              <p>type: {anime.type}</p>
+              <p>about: {anime.synopsis}</p>
+            </div>
+          )
+        })}
       </main>
       <Footer />
     </div>
