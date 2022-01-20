@@ -25,6 +25,12 @@ function App() {
       },
     }).then( (res) => {
       setAnime(res.data.results);
+    }).catch( (error) => {
+      if (error.message) {
+        alert('Sorry, that anime does not exist! Please look up another one')
+      } else {
+        alert('The hamsters powering my computer ate through my code. I will get things fixed shortly. No worries, the hamsters are not in trouble..')
+      }
     });
   }, [searchTerm]);
 
@@ -37,27 +43,31 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSearchTerm(userInput);
-  }
+    setUserInput("");
+  } 
 
   return (
     <div className="App">
       <Header />
       <main>
-        <form onSubmit={ handleSubmit }>
-          <input type="text" id="search" placeholder="Violet Evergarden" onChange={ handleInput } value={ userInput }/>
-          <button>Search</button>
-        </form>
+        <div className='wrapper'>
+          <form onSubmit={ handleSubmit }>
+            <input type="text" id="search" placeholder="Violet Evergarden" alt="Search your anime here" onChange={ handleInput } value={ userInput }/>
+            <button>Search</button>
+          </form>
 
-        {anime.map((anime) => {
-          return (
-            <div className='main-display' key={anime.mal_id}>
-              <img src={anime.image_url}/>
-              <h2>Title: {anime.title}</h2>
-              <p className="">Type: {anime.type}</p>
-              <p className="anime-synopsis">About: {anime.synopsis}</p>
-            </div>
-          )
-        })}
+          <section>
+            {anime.map((show) => {
+              return (
+                <div className='main-display' key={show.mal_id}>
+                  <img src={show.image_url}/>
+                  <h2>{show.title}</h2>
+                  <p className="anime-synopsis">About: {show.synopsis}</p>
+                </div>
+              )
+            })}
+          </section>
+        </div>
       </main>
       <Footer />
     </div>
