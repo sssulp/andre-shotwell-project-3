@@ -66,12 +66,11 @@ function App() {
           <form onSubmit={ handleSubmit }>
             <input type="text" id="search" placeholder="Violet Evergarden" label="" alt="Search your anime here" onChange={ handleInput } value={ userInput }/>
 
-            <button className='how-to' onClick={ () => setOpenModal(true)}>{ questionMark }</button>
+            <button className='how-to' onClick={ () => setOpenModal(true)} aria-label="Click to see how the site works!">{ questionMark }</button>
             <Modal 
               transparent={true}
               isOpen={ openModal } 
               onRequestClose={ () => setOpenModal(false)}
-              aria={"Click to see how the site works"}
               style={
                 {
                   content: {
