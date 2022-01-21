@@ -65,7 +65,10 @@ function App() {
           <form onSubmit={ handleSubmit }>
             <input type="text" id="search" placeholder="Violet Evergarden" label="" alt="Search your anime here" onChange={ handleInput } value={ userInput }/>
 
-            <button className='how-to' onClick={ () => setOpenModal(true)} aria-label="Click to see how the site works!">{ questionMark }</button>
+            <button className="search-button">Search</button>
+          </form>
+
+          <button className='how-to' onClick={ () => setOpenModal(true) } aria-label="Click to see how the site works!">{ questionMark }</button>
             <Modal 
               transparent={true}
               isOpen={ openModal } 
@@ -84,8 +87,6 @@ function App() {
                 <button className='close-button' onClick={ () => setOpenModal(false) }>Close</button>
               </div>
             </Modal>
-            <button className="search-button">Search</button>
-          </form>
 
           <section>
             {anime.map((show) => {
