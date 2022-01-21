@@ -33,7 +33,7 @@ p {
   top: 150px;
   margin: 0 auto;
   position: relative;
-  z-index: 50;
+  z-index: 2;
   background: rgba(0, 0, 0, 0.3);
 }
 
@@ -141,13 +141,13 @@ input {
   height: 50px;
   font-size: 26px;
   width: 400px;
-  margin: 25px 0px 25px 0px;
+  margin: 25px 0px 0px 0px;
   text-align: center;
   z-index: 1;
 }
 
 /* button style */
-button {
+.search-button {
   background-color: #f6f6f6;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -162,10 +162,52 @@ button {
   z-index: 1;
 }
 
-button:hover {
+.search-button:hover {
   color: #f6f6f6;
   background-color: #243c4b;
   border: 1px solid #f6f6f6;
+}
+
+.how-to {
+  font-size: 30px;
+  background:rgba(0, 0, 0, 0.0);
+  color: #f6f6f6;
+  border: none;
+  cursor: pointer;
+  transition-duration: 250ms;
+  position: relative;
+  z-index: 1;
+  left: 250px;
+  bottom: 50px;
+}
+
+.how-to:hover {
+  color: rgb(255, 255, 92);
+}
+
+.close-button {
+  background-color: #243c4b;
+  color:#f6f6f6;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 16px 30px;
+  margin-top: 25px;
+  width: 145px;
+  font-size: 18px;
+  border: 1px solid #f6f6f6;
+  cursor: pointer;
+  transition-duration: 350ms;
+}
+
+.close-button:hover {
+  background-color: whitesmoke;
+  color: black;
+}
+
+
+/* modal style */
+.ReactModal__Overlay {
+  z-index: 100;
 }
 
 /* footer style */

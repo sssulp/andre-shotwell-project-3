@@ -1,8 +1,16 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Header from './Header';
-import Footer from './Footer';
+import Modal from 'react-modal';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+
+
+import Header from './components/Header';
+import Footer from './components/Footer';
 import './App.css';
+
+Modal.setAppElement('#root');
 
 function App() {
 
@@ -10,6 +18,10 @@ function App() {
   const [ anime, setAnime ] = useState([]);
   const [ userInput, setUserInput ] = useState("");
   const [ searchTerm, setSearchTerm ] = useState("");
+
+  // font awesome button icon
+  const questionMark = <FontAwesomeIcon icon={ faQuestionCircle }/>
+  const [ openModal, setOpenModal ] = useState(false);
 
   // make an API call to Jikan API
   useEffect( () => {
@@ -52,8 +64,28 @@ function App() {
       <main>
         <div className='wrapper'>
           <form onSubmit={ handleSubmit }>
-            <input type="text" id="search" placeholder="Violet Evergarden" alt="Search your anime here" onChange={ handleInput } value={ userInput }/>
-            <button>Search</button>
+            <input type="text" id="search" placeholder="Violet Evergarden" label="" alt="Search your anime here" onChange={ handleInput } value={ userInput }/>
+
+            <button className='how-to' onClick={ () => setOpenModal(true)}>{ questionMark }</button>
+            <Modal 
+              transparent={true}
+              isOpen={ openModal } 
+              onRequestClose={ () => setOpenModal(false)}
+              style={
+                {
+                  content: {
+                    textAlign: 'center',
+                    height: '250px',
+                  }
+                }
+              }>
+              <h2>How to use the search</h2>
+              <p>Enter the title of the anime you want to look up in the search bar. And hit search. Animes will populate below the header splash page by descending order. Powered by the Jikan API.</p>
+              <div>
+                <button className='close-button' onClick={ () => setOpenModal(false) }>Close</button>
+              </div>
+            </Modal>
+            <button className="search-button">Search</button>
           </form>
 
           <section>
