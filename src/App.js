@@ -71,6 +71,7 @@ function App() {
               transparent={true}
               isOpen={ openModal } 
               onRequestClose={ () => setOpenModal(false)}
+              aria={"Click to see how the site works"}
               style={
                 {
                   content: {
