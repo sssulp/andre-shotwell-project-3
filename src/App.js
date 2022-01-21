@@ -5,7 +5,6 @@ import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 
-
 import Header from './components/Header';
 import Footer from './components/Footer';
 import './App.css';
@@ -92,7 +91,7 @@ function App() {
             {anime.map((show) => {
               return (
                 <div className='main-display' key={show.mal_id}>
-                  <img src={show.image_url}/>
+                  <img src={show.image_url} alt={show.title}/>
                   <h2>{show.title}</h2>
                   <p className="anime-synopsis">About: {show.synopsis}</p>
                 </div>
