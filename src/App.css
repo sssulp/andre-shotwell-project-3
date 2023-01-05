@@ -2,6 +2,15 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap');
 
+:root {
+    --mainbg: #f6f6f6;
+    --cardcc: #fff;
+}
+
+body {
+  background-color: var(--mainbg);
+}
+
 /* wrapper */
 .wrapper {
   max-width: 1200px;
@@ -83,35 +92,47 @@ video {
 }
 
 main {
-  background: #1b2731;
   padding-bottom: 50px;
+}
+
+.suggested-anime {
+  background-color: #f3f1e8;
+  padding: 10px 16px;
+  width: auto;
 }
 
 /* anime display styles */
 section {
   display: flex;
   flex-wrap: wrap;
-  max-width: 90%;
   margin: 0 auto;
+  width: auto;
+}
+
+.top-anime {
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
 }
 
 .main-display {
-  background: #f3f1e8;
-  border-radius: 20px;
+  background: var(--cardcc);
+  border-radius: 5px;
   max-width: 325px;
-  margin: 25px auto 10px;
+  margin: 25px auto 25px;
   text-align: left;
   transition: 0.25s;
+  box-shadow: 0px 13px 27px -5px rgba(50, 50, 93, 0.25), 0px 8px 16px -8px rgba(0, 0, 0, 0.3), 0px -6px 16px -6px rgba(0, 0, 0, 0.025);
 }
 
 .main-display img {
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   width: 100%;
 }
 
 .main-display:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 .main-display h2 {
@@ -156,9 +177,8 @@ input {
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #282c34;
-  padding: 16px 30px;
+  padding: 12px 30px;
   margin-bottom: 25px;
-  width: 200px;
   font-size: 18px;
   border: 1px solid #f6f6f6;
   cursor: pointer;
@@ -180,9 +200,9 @@ input {
   cursor: pointer;
   transition-duration: 250ms;
   position: relative;
-  z-index: 3;
+  z-index: 6;
   left: 250px;
-  bottom: 347px;
+  bottom: 155px;
 }
 
 .how-to:hover {
@@ -195,7 +215,7 @@ input {
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 16px 30px;
-  margin-top: 25px;
+  margin-top: 7px;
   width: 145px;
   font-size: 18px;
   border: 1px solid #f6f6f6;
