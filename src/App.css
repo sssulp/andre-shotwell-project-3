@@ -102,7 +102,7 @@ main {
 }
 
 /* anime display styles */
-section {
+.anime-section {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
@@ -117,8 +117,9 @@ section {
 
 .main-display {
   background: var(--cardcc);
+  display: flex;
   border-radius: 5px;
-  max-width: 325px;
+  width: 40%;
   margin: 25px auto 25px;
   text-align: left;
   transition: 0.25s;
@@ -127,8 +128,7 @@ section {
 
 .main-display img {
   border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  width: 100%;
+  border-bottom-left-radius: 5px;
 }
 
 .main-display:hover {
@@ -246,6 +246,17 @@ footer p {
 }
 
 /* media queries */
+@media (max-width: 1000px) {
+  .anime-section {
+    flex-direction: column;
+  }
+
+  .main-display {
+    width: 90%;
+    margin: 30px auto;
+  }
+}
+
 @media (max-width: 670px) {
   .title-splash {
     width: 90%;
